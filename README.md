@@ -7,3 +7,4 @@ El alcance del sistema se concentrará en:
 - Deshacer y rehacer acciones: permitirá revertir y recuperar acciones realizadas por el usuario, como la creación, modificación o eliminación de tareas.
 - Ordenamiento y filtrado de tareas: permitirá organizar y consultar las tareas según criterios como prioridad, fecha de vencimiento, estado o responsable, facilitando su búsqueda y seguimiento.
 El sistema no incluirá funcionalidades de notificaciones externas, integración con servicios en la nube ni gestión avanzada de usuarios, dado que estas no forman parte del alcance seleccionado.
+**Requisitos funcionales
