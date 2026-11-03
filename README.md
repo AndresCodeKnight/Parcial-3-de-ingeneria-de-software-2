@@ -7,4 +7,8 @@ El alcance del sistema se concentrará en:
 - Deshacer y rehacer acciones: permitirá revertir y recuperar acciones realizadas por el usuario, como la creación, modificación o eliminación de tareas.
 - Ordenamiento y filtrado de tareas: permitirá organizar y consultar las tareas según criterios como prioridad, fecha de vencimiento, estado o responsable, facilitando su búsqueda y seguimiento.
 El sistema no incluirá funcionalidades de notificaciones externas, integración con servicios en la nube ni gestión avanzada de usuarios, dado que estas no forman parte del alcance seleccionado.
-**Requisitos funcionales
+**Requisitos funcionales**
+**Requisitos no funcionales**
+- RNF-01: Núcleo Desacoplado (Core Independiente): La lógica del negocio (modelo de tareas, validación de estados, historial) debe estar completamente desacoplada de la capa de presentación.
+- RNF-02: Aplicación de Patrones de Diseño: La arquitectura debe implementar de forma explícita al menos tres patrones de diseño (creacionales, estructurales o de comportamiento) que resuelvan problemas específicos de flexibilidad y acoplamiento (ej. patrón Composite para tareas/subtareas, State para estados y Command/Memento para deshacer/rehacer).
+- RNF-03: Interfaz:El sistema de mostrar una interfaz gráfica sencilla (Java Swing)
