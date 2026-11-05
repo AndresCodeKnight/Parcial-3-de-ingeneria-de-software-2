@@ -17,6 +17,7 @@ El sistema no incluirá funcionalidades de notificaciones externas, integración
 - RF-06: El sistema debe permitir aplicar nuevamente la acción que fue desecha (redo).
 - RF-07: El sistema debe permitir al usuario aplicar filtros sobre el listado de tareas.
 - RF-08: El sistema debe permitir ordenar la lista de tareas en orden ascendente y descendente.
+  
 **Requerimientos no funcionales**
 - RNF-01: Núcleo Desacoplado (Core Independiente): La lógica del negocio (modelo de tareas, validación de estados, historial) debe estar completamente desacoplada de la capa de presentación.
 - RNF-02: Aplicación de Patrones de Diseño: La arquitectura debe implementar de forma explícita al menos tres patrones de diseño (creacionales, estructurales o de comportamiento) que resuelvan problemas específicos de flexibilidad y acoplamiento (ej. patrón Composite para tareas/subtareas, State para estados y Command/Memento para deshacer/rehacer).
