@@ -9,8 +9,14 @@ El alcance del sistema se concentrará en:
 El sistema no incluirá funcionalidades de notificaciones externas, integración con servicios en la nube ni gestión avanzada de usuarios, dado que estas no forman parte del alcance seleccionado.
 
 **Requerimientos funcionales**
-
-
+- RF-01: El sistema debe permitir al usuario crear tareas individuales especificando título, descripción opcional, fecha de vencimiento y prioridad
+- RF-02: El sistema debe permitir descomponer una tarea en subtareas
+- RF-03: El sistema debe soportar exactamente cuatro estados para cada tarea: Pendiente, En curso, En revisión y Terminada.
+- RF-04: El sistema debe registrar las acciones del usuario, para poder revertirlas.
+- RF-05: El sistema debe permitir revertir la ultima acción ejecutada por el usuario.
+- RF-06: El sistema debe permitir aplicar nuevamente la acción que fue desecha (redo).
+- RF-07: El sistema debe permitir al usuario aplicar filtros sobre el listado de tareas.
+- RF-08: El sistema debe permitir ordenar la lista de tareas en orden ascendente y descendente.
 **Requerimientos no funcionales**
 - RNF-01: Núcleo Desacoplado (Core Independiente): La lógica del negocio (modelo de tareas, validación de estados, historial) debe estar completamente desacoplada de la capa de presentación.
 - RNF-02: Aplicación de Patrones de Diseño: La arquitectura debe implementar de forma explícita al menos tres patrones de diseño (creacionales, estructurales o de comportamiento) que resuelvan problemas específicos de flexibilidad y acoplamiento (ej. patrón Composite para tareas/subtareas, State para estados y Command/Memento para deshacer/rehacer).
