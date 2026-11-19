@@ -24,7 +24,7 @@ Permite representar tareas simples y compuestas mediante una abstracción común
 
 **Problema identificado:**
 
-El sistema necesita crear distintos tipos de tareas, como tareas simples y tareas compuestas. Si la creación se concentra en una única clase mediante múltiples condicionales y constructores, esta clase puede acumular responsabilidades y quedar fuertemente acoplada a las implementaciones concretas.
+El sistema necesita crear distintos tipos de tareas o plantillas predefinidas (como Tarea Estándar, Tarea Urgente con prioridad alta automática o Proyecto Base con subtareas iniciales), cada una con configuraciones y valores por defecto diferentes al momento de instanciarse. Si la creación se concentra en una única clase mediante múltiples condicionales y constructores, esta clase acumularía responsabilidades y quedaría fuertemente acoplada a las implementaciones concretas.
 
 **Consecuencia de un diseño inadecuado:**
 
