@@ -1,58 +1,53 @@
-El Gestor de Tareas y Proyectos presenta diferentes situaciones que requieren decisiones de diseño para evitar un sistema rígido, con responsabilidades mezcladas y difícil de ampliar.
-
-Se identifican tres problemas principales, cada uno relacionado con un patrón de diseño que permite resolverlo.
+El Gestor de Tareas y Proyectos (LAD) presenta cuatro situaciones clave que requieren decisiones de diseño para evitar un sistema rígido, con responsabilidades mezcladas y difícil de ampliar:
 
 ## 1. Administración de tareas simples y compuestas
 
 **Problema identificado:**
 
-El sistema debe permitir manejar tareas individuales y tareas compuestas por múltiples subtareas. Un diseño ingenuo podría implementar estructuras y operaciones diferentes para cada tipo de tarea, obligando al gestor a distinguir constantemente entre ellas.
-
+El sistema debe manejar tareas individuales y tareas compuestas por múltiples subtareas (que a su vez pueden contener otras subtareas). Un diseño ingenuo implementaría estructuras y operaciones separadas para cada tipo, obligando al gestor y a las vistas a distinguir constantemente entre ellas mediante condicionales.
 Esto dificultaría la administración de jerarquías, especialmente cuando una tarea compuesta contiene otras tareas compuestas.
 
 **Consecuencia de un diseño inadecuado:**
 
 - Duplicación de código.
-- Mayor complejidad al recorrer y visualizar tareas.
+- Mayor complejidad al recorrer o calcular el estado de jerarquías.
 - Dificultad para ampliar la estructura jerárquica.
 
 **Patrón seleccionado: Composite**
 
-Permite representar tareas simples y compuestas mediante una abstracción común, facilitando su organización en estructuras jerárquicas.
+Permite tratar tanto a las tareas simples como a las compuestas bajo una abstracción común (ComponenteTarea), unificando su visualización y consulta de estado.
 
 ## 2. Creación de diferentes tipos de tareas
 
 **Problema identificado:**
 
-El sistema necesita crear distintos tipos de tareas o plantillas predefinidas (como Tarea Estándar, Tarea Urgente con prioridad alta automática o Proyecto Base con subtareas iniciales), cada una con configuraciones y valores por defecto diferentes al momento de instanciarse. Si la creación se concentra en una única clase mediante múltiples condicionales y constructores, esta clase acumularía responsabilidades y quedaría fuertemente acoplada a las implementaciones concretas.
+Cada tarea pasa por cuatro estados (Pendiente, En curso, En revisión y Terminada) con reglas estrictas sobre qué transiciones están permitidas. Implementar esto con un enum y un bloque gigante de switch o if-else dentro de la clase Tarea haría que la clase crezca sin control y viole el principio Abierto/Cerrado (Open/Closed).
 
 **Consecuencia de un diseño inadecuado:**
 
-- Acoplamiento entre el proceso de creación y los tipos concretos de tareas.
-- Dificultad para incorporar nuevas variantes.
-- Modificaciones frecuentes en la lógica de creación.
+- Lógica condicional compleja y acoplada al modelo de datos
+- Alto riesgo de errores al modificar una regla de flujo
+- Dificultad para agregar un nuevo estado (por ejemplo, Bloqueada) sin alterar código existente.
 
-**Patrón seleccionado: Factory Method**
+**Patrón seleccionado: State**
 
-Permite delegar la creación de los objetos en creadores especializados, manteniendo una abstracción común para los productos generados.
+Encapsula cada estado en una clase independiente que define explícitamente qué transiciones permite y cuáles rechaza mediante excepciones controladas.
 
-## 3. Diferentes criterios de ordenamiento de tareas
+## 3. Registro y reversión de acciones del usuario (Undo / Redo)
 
 **Problema identificado:**
 
-El gestor debe permitir organizar las tareas mediante diferentes criterios, como prioridad, fecha de vencimiento, estado o nombre.
-
-Si todos los algoritmos de ordenamiento se implementan directamente en una sola clase, utilizando múltiples condicionales, agregar o modificar criterios puede afectar la lógica existente.
+El usuario necesita deshacer y rehacer operaciones (crear, editar, cambiar estado o eliminar tareas) tanto desde la consola como desde la interfaz gráfica. Si la lógica para revertir acciones se escribe dentro de los botones de Swing o en el menú de consola, se duplicaría el código y se acoplaría el historial a la presentación.
 
 **Consecuencia de un diseño inadecuado:**
 
-- Crecimiento innecesario de una misma clase.
-- Dificultad para incorporar nuevos criterios.
-- Menor facilidad para probar y mantener cada algoritmo.
+-Duplicación de lógica inversa entre consola y Swing
+-Alto consumo de memoria si se clona todo el sistema en cada cambio  
+-Dificultad para incorporar nuevas acciones reversibles.
 
-**Patrón seleccionado: Strategy.**
+**Patrón seleccionado: Command.**
 
-Permite encapsular cada criterio de ordenamiento como una estrategia independiente, de modo que el gestor pueda utilizar diferentes algoritmos mediante una misma abstracción.
+Encapsula cada acción del usuario como un objeto con métodos ejecutar() y deshacer(), gestionados centralmente mediante pilas de historial (Undo y Redo) 
 
 ## 4. Relación general entre problemas y patrones
 
