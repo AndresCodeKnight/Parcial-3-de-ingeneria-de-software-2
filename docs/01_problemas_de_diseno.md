@@ -76,8 +76,10 @@ Encapsula cada criterio de filtrado y ordenamiento en estrategias intercambiable
 
 ## 6. Consideraciones finales
 
-La selección de estos patrones busca que el sistema tenga una estructura modular, con responsabilidades diferenciadas y posibilidades de extensión.
+La implementación de los 4 patrones permite establecer una estructura modular y organizada para el sistema, distribuyendo mejor las responsabilidades, y facilitando el mantenimiento y ampliación de las funcionalidades.
 
-Cada patrón responde a una necesidad concreta del gestor y no se incorpora únicamente por cumplir una cantidad determinada de patrones de diseño.
+Cada patrón se incorporó para atender una necesidad específica del proyecto: Composite facilita la organización de elementos mediante estructuras jerárquicas; State permite gestionar los cambios de comportamiento según el estado del sistema; Command encapsula las acciones para ejecutarlas y administrarlas de manera independiente; y Strategy permite intercambiar distintas formas de realizar un comportamiento sin modificar la estructura principal.
 
-Su implementación deberá mantener la coherencia con los requisitos funcionales y no funcionales, así como con la separación entre la lógica del negocio y las interfaces de usuario.
+En conjunto estos patrones contribuyen a reducir el acoplamiento entre los componentes, favorecer la reutilización del código y mejorar la flexibilidad del sistema. Su aplicación mantiene la coherencia con los RF y RNF del proyecto, respetando la separación entre la lógica del negocio y las interfaces de usuario.
+
+Por tanto, su utilización responde a necesidades reales del diseño y funcionamiento, y no directamente al cumplimiento de una cantidad determinada de patrones de diseño.
