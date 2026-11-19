@@ -49,15 +49,32 @@ El usuario necesita deshacer y rehacer operaciones (crear, editar, cambiar estad
 
 Encapsula cada acción del usuario como un objeto con métodos ejecutar() y deshacer(), gestionados centralmente mediante pilas de historial (Undo y Redo) 
 
-## 4. Relación general entre problemas y patrones
+## 4. Diferentes criterios de filtrado y ordenamiento
+
+**Problema identificado:**
+
+El sistema debe filtrar y ordenar las tareas por múltiples criterios (prioridad, fecha de vencimiento, estado, responsable o título) en orden ascendente o descendente. Concentrar todos los algoritmos de consulta en el gestor llenaría la clase de métodos combinatorios difíciles de mantener.
+
+**Consecuencia de un diseño inadecuado:**
+
+-Crecimiento desmedido de la clase gestora
+-Dificultad para agregar nuevos filtros 
+-Ordenamientos en tiempo de ejecución y baja cohesión.
+
+**Patrón seleccionado: Strategy.**
+
+Encapsula cada criterio de filtrado y ordenamiento en estrategias intercambiables bajo una interfaz común.
+
+## 5. Relación general entre problemas y patrones
 
 | Problema de diseño | Patrón seleccionado | Categoría |
 |---|---|---|
 | Organización de tareas y subtareas | Composite | Estructural |
-| Creación de tipos de tareas | Factory Method | Creacional |
-| Diferentes criterios de ordenamiento | Strategy | Comportamiento |
+| Reglas de transición entre estados | State | Comportamiento |
+| Historial para deshacer y rehacer (Undo/Redo) | Command | Comportamiento |
+| Criterios dinámicos de filtrado y ordenamiento | Strategy | Comportamiento |
 
-## 5. Consideraciones finales
+## 6. Consideraciones finales
 
 La selección de estos patrones busca que el sistema tenga una estructura modular, con responsabilidades diferenciadas y posibilidades de extensión.
 
