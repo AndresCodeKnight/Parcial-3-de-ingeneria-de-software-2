@@ -17,7 +17,7 @@ Esto dificultaría la administración de jerarquías, especialmente cuando una t
 
 Permite tratar tanto a las tareas simples como a las compuestas bajo una abstracción común (ComponenteTarea), unificando su visualización y consulta de estado.
 
-## 2. Creación de diferentes tipos de tareas
+## 2. Control de estados y transiciones
 
 **Problema identificado:**
 
