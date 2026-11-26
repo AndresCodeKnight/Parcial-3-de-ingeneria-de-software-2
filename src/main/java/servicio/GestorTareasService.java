@@ -3,6 +3,7 @@ package servicio;
 import comando.*;
 import modelo.*;
 import estrategia.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,6 +14,17 @@ public class GestorTareasService {
 
     public void agregarTarea(ComponenteTarea tarea) {
         historial.ejecutarComando(new CrearTareaCmd(tareas, tarea));
+    }
+
+    public void editarTarea(String idTarea,
+                            String nuevoTitulo,
+                            Prioridad nuevaPrioridad,
+                            LocalDate nuevaFecha,
+                            String nuevoResponsable) {
+        ComponenteTarea tarea = buscarPorId(idTarea);
+        historial.ejecutarComando(new EditarTareaCmd(
+                tarea, nuevoTitulo, nuevaPrioridad, nuevaFecha, nuevoResponsable
+        ));
     }
 
     public void eliminarTarea(String idTarea) {

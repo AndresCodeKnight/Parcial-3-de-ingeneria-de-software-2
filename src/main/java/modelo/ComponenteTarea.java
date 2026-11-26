@@ -11,7 +11,7 @@ public abstract class ComponenteTarea {
     private TareaCompuesta padre;
 
     public ComponenteTarea(String id, String titulo, Prioridad prioridad,
-            LocalDate fechaVencimiento, String responsable) {
+                           LocalDate fechaVencimiento, String responsable) {
         if (id == null || id.isBlank()) {throw new IllegalArgumentException("El ID es obligatorio.");}
         if (titulo == null || titulo.isBlank()) {throw new IllegalArgumentException("El título es obligatorio.");}
         if (prioridad == null) {throw new IllegalArgumentException("La prioridad es obligatoria.");}
@@ -31,6 +31,20 @@ public abstract class ComponenteTarea {
     public LocalDate getFechaVencimiento() {return fechaVencimiento;}
 
     public String getResponsable() {return responsable;}
+
+    public void setTitulo(String titulo) {
+        if (titulo == null || titulo.isBlank()) {throw new IllegalArgumentException("El título es obligatorio.");}
+        this.titulo = titulo;
+    }
+
+    public void setPrioridad(Prioridad prioridad) {
+        if (prioridad == null) {throw new IllegalArgumentException("La prioridad es obligatoria.");}
+        this.prioridad = prioridad;
+    }
+
+    public void setFechaVencimiento(LocalDate fechaVencimiento) {this.fechaVencimiento = fechaVencimiento;}
+
+    public void setResponsable(String responsable) {this.responsable = responsable;}
 
     public abstract String getEstadoActual();
 
