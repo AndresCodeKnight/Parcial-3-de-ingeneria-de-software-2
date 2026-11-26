@@ -24,3 +24,20 @@ El sistema no incluirá notificaciones externas, integración con servicios en l
 - RNF-02 (Aplicación de Patrones de Diseño): La arquitectura debe implementar de forma explícita cuatro patrones de diseño pertenecientes a distintas categorías para resolver problemas reales de flexibilidad y acoplamiento: Composite (Estructural), State (Comportamiento), Command (Comportamiento) y Strategy (Comportamiento) para los criterios intercambiables de filtrado y ordenamiento.
 - RNF-03 (Interfaces de Usuario): El sistema debe ofrecer una interfaz ejecutable por consola y una interfaz gráfica sencilla desarrollada en Java Swing, ambas operando sobre el mismo núcleo de negocio.
 - RNF-04 (Calidad y Pruebas): Las clases del núcleo donde se implementen los patrones de diseño deben contar con pruebas unitarias automatizadas (JUnit) que validen su correcto funcionamiento.
+
+  ## Instrucciones de compilación y ejecución
+
+1. **Requisitos:** Java JDK 17 o superior y JUnit 5 (Jupiter) configurado en el proyecto.
+2. **Ejecutar interfaz por Consola:** Ejecutar el método `main` de la clase `src/main/java/ui/consola/MainConsola.java`.
+3. **Ejecutar interfaz gráfica (Java Swing):** Ejecutar el método `main` de la clase `src/main/java/ui/swing/MainSwing.java`.
+4. **Ejecutar pruebas unitarias:** Hacer clic derecho sobre la carpeta `src/test/java` y seleccionar **Run 'All Tests'** (28 pruebas automatizadas).
+
+## Declaración de uso de herramientas de apoyo
+
+Durante el desarrollo del proyecto se emplearon herramientas de asistencia basadas en inteligencia artificial como apoyo para la revisión de estructura de pruebas unitarias en JUnit 5, verificación de consistencia entre diagramas UML/documentación y código fuente, y validación de casos borde en los patrones de diseño. Toda la arquitectura, lógica de negocio e integración fue revisada, comprendida y adaptada por los integrantes del equipo.
+
+## Conclusiones
+
+- La aplicación de los patrones **Composite, State, Command y Strategy** permitió construir un núcleo de dominio (`GestorTareasService`) desacoplado de las capas de presentación, haciendo posible operar exactamente la misma lógica desde Consola y Java Swing sin duplicar código.
+- El uso de **Command** junto con dos pilas de historial (`Undo` y `Redo`) resolvió de forma limpia la reversión de acciones sin necesidad de clonar el estado completo del sistema en cada operación.
+- La separación de responsabilidades bajo los principios **SOLID** facilita extender el sistema (por ejemplo, añadiendo nuevos criterios de filtrado u ordenamiento) sin modificar las clases centrales ya probadas.
