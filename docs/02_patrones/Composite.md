@@ -20,11 +20,11 @@ En este proyecto, permite representar una tarea simple como un elemento individu
 
 Se propone utilizar las siguientes clases:
 
-- **ComponenteTarea:** interfaz común que define las operaciones básicas que pueden realizar las tareas.
+- **modelo.ComponenteTarea:** interfaz común que define las operaciones básicas que pueden realizar las tareas.
 - **TareaSimple:** representa una tarea individual que no contiene subtareas.
 - **TareaCompuesta:** representa una tarea que puede contener otras tareas simples o compuestas.
 
-La clase TareaCompuesta podrá almacenar una colección de objetos de tipo ComponenteTarea. De esta manera, podrá contener tanto tareas simples como otras tareas compuestas.
+La clase TareaCompuesta podrá almacenar una colección de objetos de tipo modelo.ComponenteTarea. De esta manera, podrá contener tanto tareas simples como otras tareas compuestas.
 
 Esta organización permite construir jerarquías de tareas sin establecer un límite fijo de niveles.
 
@@ -32,7 +32,7 @@ Esta organización permite construir jerarquías de tareas sin establecer un lí
 
 | Elemento de Composite | Aplicación en el proyecto |
 |---|---|
-| Component | ComponenteTarea |
+| Component | modelo.ComponenteTarea |
 | Leaf | TareaSimple |
 | Composite | TareaCompuesta |
 | Children | Colección de componentes contenida en TareaCompuesta |
@@ -65,5 +65,5 @@ Se selecciona Composite porque permite trabajar con una abstracción común y si
 
 - **Principio de responsabilidad única (SRP):** TareaSimple representa una tarea individual, mientras que TareaCompuesta administra la composición de otras tareas.
 - **Principio abierto/cerrado (OCP):** permite incorporar nuevos tipos de componentes sin modificar necesariamente la estructura principal.
-- **Principio de sustitución de Liskov (LSP):** ambos tipos de tareas pueden utilizarse mediante la abstracción ComponenteTarea, respetando el comportamiento definido por ella.
-- **Principio de inversión de dependencias (DIP):** TareaCompuesta trabaja con la abstracción ComponenteTarea y no depende exclusivamente de la clase TareaSimple.
+- **Principio de sustitución de Liskov (LSP):** ambos tipos de tareas pueden utilizarse mediante la abstracción modelo.ComponenteTarea, respetando el comportamiento definido por ella.
+- **Principio de inversión de dependencias (DIP):** TareaCompuesta trabaja con la abstracción modelo.ComponenteTarea y no depende exclusivamente de la clase TareaSimple.

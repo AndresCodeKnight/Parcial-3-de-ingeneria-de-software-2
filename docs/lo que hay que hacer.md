@@ -1,7 +1,7 @@
 Integrante 1: Modelo Jerárquico, Estados y Documentación de Diseño
 Código Java (com.lad.core.model, com.lad.core.state y com.lad.core.exception):
 
-Implementar Composite: ComponenteTarea, TareaSimple, TareaCompuesta y Prioridad.
+Implementar Composite: modelo.ComponenteTarea, TareaSimple, TareaCompuesta y modelo.Prioridad.
 
 Implementar State: interfaz EstadoTarea y las 4 clases (Pendiente, EnCurso, EnRevision, Terminada) con sus reglas de transición.
 
