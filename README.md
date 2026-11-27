@@ -1,3 +1,5 @@
+**Integrantes del grupo:** Andrés Felipe Plazas Rodriguez,Walter Leonardo Míñope Chaves ,Daniel Alejandro Romero Murcia
+
 **Alcance del sistema**
 LAD será una aplicación desarrollada en Java que permitirá organizar y administrar tareas personales o de proyectos mediante una interfaz de consola y una interfaz gráfica sencilla.
 La aplicación permitirá crear tareas simples y tareas compuestas por subtareas, gestionar sus estados mediante reglas de transición definidas, así como ordenar y filtrar las tareas según diferentes criterios.
